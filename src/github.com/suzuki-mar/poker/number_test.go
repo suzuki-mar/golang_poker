@@ -29,8 +29,31 @@ func TestDisplay(t *testing.T) {
 				t.Log("cleanup!")
 			})
 
-			if number.DisplayString() != tt.expected {
-				t.Errorf("期待した値 %v 実際の値 %v", tt.expected, number.DisplayString())
+			if number.displayString() != tt.expected {
+				t.Errorf("期待した値 %v 実際の値 %v", tt.expected, number.displayString())
+			}
+		})
+	}
+}
+
+func TestIsSame(t *testing.T) {
+	tests := []struct {
+		target   Number
+		compare  Number
+		expected bool
+	}{
+		{target: Number{1}, compare: Number{1}, expected: true},
+		{target: Number{1}, compare: Number{2}, expected: false},
+	}
+	for _, tt := range tests {
+		t.Run(tt.target.displayString(), func(t *testing.T) {
+			// t.Fatalf でテストが失敗した場合でもクリーンアップ処理は呼び出される
+			t.Cleanup(func() {
+				t.Log("cleanup!")
+			})
+
+			if tt.target.isSame(tt.compare) != tt.expected {
+				t.Errorf("期待した値 %v 実際の値 %v", tt.expected, tt.target.isSame(tt.compare))
 			}
 		})
 	}

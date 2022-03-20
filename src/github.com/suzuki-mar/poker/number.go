@@ -8,7 +8,7 @@ type Number struct {
 	value int
 }
 
-func (n Number) DisplayString() string {
+func (n Number) displayString() string {
 
 	switch n.value {
 	case 1:
@@ -22,4 +22,8 @@ func (n Number) DisplayString() string {
 	default:
 		return strconv.Itoa(n.value)
 	}
+}
+
+func (n Number) isSame(compare Number) bool {
+	return n.value == compare.value
 }
