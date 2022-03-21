@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestSuit_displayString(t *testing.T) {
+func TestSuitDisplayString(t *testing.T) {
 	tests := []struct {
 		suit     Suit
 		expected string
@@ -30,7 +30,7 @@ func TestSuit_displayString(t *testing.T) {
 	}
 }
 
-func TestIsSameSuit(t *testing.T) {
+func TestSuitIsSame(t *testing.T) {
 	tests := []struct {
 		target   Suit
 		compare  Suit

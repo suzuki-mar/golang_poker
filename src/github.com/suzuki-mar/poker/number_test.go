@@ -5,9 +5,7 @@ import (
 	"testing"
 )
 
-//arr := [...] string{"Golang", "Java"}
-
-func TestDisplay(t *testing.T) {
+func TestNumberDisplay(t *testing.T) {
 	tests := []struct {
 		number   Number
 		expected string
@@ -36,7 +34,7 @@ func TestDisplay(t *testing.T) {
 	}
 }
 
-func TestIsSame(t *testing.T) {
+func TestNumberIsSame(t *testing.T) {
 	tests := []struct {
 		target   Number
 		compare  Number

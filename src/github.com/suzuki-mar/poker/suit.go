@@ -2,11 +2,6 @@ package poker
 
 type Suit int
 
-//* スペード(♠): spade
-//* ハート(♥): heart
-//* クローバー(♣): clover
-//* ダイヤ(◆): diamond
-
 const (
 	Spade Suit = iota
 	Heart
