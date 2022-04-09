@@ -10,7 +10,7 @@ func TestHandString(t *testing.T) {
 		hand     Hand
 		expected string
 	}{
-		{hand: buildHand(buildHandParams()), expected: "♣2 ♣3 ♣4 ♣5 ♣6"},
+		{hand: buildHandWithParams(buildHandParams()), expected: "♣2 ♣3 ♣4 ♣5 ♣6"},
 	}
 	for _, tt := range tests {
 		t.Run("string()", func(t *testing.T) {
@@ -26,9 +26,8 @@ func TestHandString(t *testing.T) {
 	}
 }
 
-func TestHandBuildRandHand(t *testing.T) {
+func TestHandBuildHand(t *testing.T) {
 	t.Run("buildBuildRandHand()", func(t *testing.T) {
-		//作成できたらテストに成功したことにする
 		BuildHand()
 	})
 }

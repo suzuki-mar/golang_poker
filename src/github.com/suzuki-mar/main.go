@@ -5,7 +5,17 @@ import (
 	"golang/src/github.com/suzuki-mar/poker"
 )
 
+type Hander interface {
+	String() string
+}
+
 func main() {
-	num := poker.Number{}
-	fmt.Println(num.DisplayString())
+
+	hand := poker.BuildHand()
+
+	printHand(hand)
+}
+
+func printHand(hand Hander) {
+	fmt.Println(hand.String())
 }

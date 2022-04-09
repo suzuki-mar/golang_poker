@@ -21,7 +21,7 @@ type HandParam struct {
 	numberValue int
 }
 
-func buildHand(params [5]HandParam) Hand {
+func buildHandWithParams(params [5]HandParam) Hand {
 
 	var cards []Card
 

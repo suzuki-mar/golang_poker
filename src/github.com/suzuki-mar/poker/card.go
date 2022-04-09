@@ -89,7 +89,7 @@ func buildRandNumber() number {
 	var value int
 
 	for {
-		value := rand.Intn(13)
+		value = rand.Intn(13)
 		if value > 0 {
 			break
 		}
@@ -102,7 +102,7 @@ func buildRandSuit() Suit {
 	var value int
 
 	for {
-		value := rand.Intn(4)
+		value = rand.Intn(4)
 		if value > 0 {
 			break
 		}
