@@ -23,8 +23,8 @@ func TestSuitDisplayString(t *testing.T) {
 				t.Log("cleanup!")
 			})
 
-			if tt.suit.displayString() != tt.expected {
-				t.Errorf("期待した値 %v 実際の値 %v", tt.expected, tt.suit.displayString())
+			if tt.suit.String() != tt.expected {
+				t.Errorf("期待した値 %v 実際の値 %v", tt.expected, tt.suit.String())
 			}
 		})
 	}
@@ -40,7 +40,7 @@ func TestSuitIsSame(t *testing.T) {
 		{target: Clover, compare: Diamond, expected: false},
 	}
 	for _, tt := range tests {
-		t.Run(tt.target.displayString(), func(t *testing.T) {
+		t.Run(tt.target.String(), func(t *testing.T) {
 			// t.Fatalf でテストが失敗した場合でもクリーンアップ処理は呼び出される
 			t.Cleanup(func() {
 				t.Log("cleanup!")

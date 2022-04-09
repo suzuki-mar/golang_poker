@@ -5,8 +5,8 @@ type Card struct {
 	suit   Suit
 }
 
-func (c Card) string() string {
-	return c.suit.displayString() + c.number.displayString()
+func (c Card) String() string {
+	return c.suit.String() + c.number.String()
 }
 
 func (c Card) isSameSuit(compare Card) bool {

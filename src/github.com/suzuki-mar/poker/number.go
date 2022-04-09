@@ -8,7 +8,7 @@ type Number struct {
 	value int
 }
 
-func (n Number) displayString() string {
+func (n Number) String() string {
 
 	switch n.value {
 	case 1:

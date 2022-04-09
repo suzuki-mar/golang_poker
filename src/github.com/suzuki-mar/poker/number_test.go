@@ -27,8 +27,8 @@ func TestNumberDisplay(t *testing.T) {
 				t.Log("cleanup!")
 			})
 
-			if number.displayString() != tt.expected {
-				t.Errorf("期待した値 %v 実際の値 %v", tt.expected, number.displayString())
+			if number.String() != tt.expected {
+				t.Errorf("期待した値 %v 実際の値 %v", tt.expected, number.String())
 			}
 		})
 	}
@@ -44,7 +44,7 @@ func TestNumberIsSame(t *testing.T) {
 		{target: Number{1}, compare: Number{2}, expected: false},
 	}
 	for _, tt := range tests {
-		t.Run(tt.target.displayString(), func(t *testing.T) {
+		t.Run(tt.target.String(), func(t *testing.T) {
 			// t.Fatalf でテストが失敗した場合でもクリーンアップ処理は呼び出される
 			t.Cleanup(func() {
 				t.Log("cleanup!")

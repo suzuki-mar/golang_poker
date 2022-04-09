@@ -4,11 +4,11 @@ type Hand struct {
 	cards [5]Card
 }
 
-func (h Hand) string() string {
+func (h Hand) String() string {
 	str := ""
 
 	for _, card := range h.cards {
-		str += card.string()
+		str += card.String()
 	}
 
 	return str

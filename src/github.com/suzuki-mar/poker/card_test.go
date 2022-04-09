@@ -22,8 +22,8 @@ func TestCardDisplayString(t *testing.T) {
 				t.Log("cleanup!")
 			})
 
-			if tt.card.string() != tt.expected {
-				t.Errorf("期待した値 %v 実際の値 %v", tt.expected, tt.card.string())
+			if tt.card.String() != tt.expected {
+				t.Errorf("期待した値 %v 実際の値 %v", tt.expected, tt.card.String())
 			}
 		})
 	}

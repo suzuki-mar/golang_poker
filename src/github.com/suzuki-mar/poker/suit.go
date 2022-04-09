@@ -9,7 +9,7 @@ const (
 	Diamond
 )
 
-func (s Suit) displayString() string {
+func (s Suit) String() string {
 	switch s {
 	case Spade:
 		return "♠"
@@ -25,5 +25,5 @@ func (s Suit) displayString() string {
 }
 
 func (s Suit) isSame(compare Suit) bool {
-	return s.displayString() == compare.displayString()
+	return s.String() == compare.String()
 }

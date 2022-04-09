@@ -10,17 +10,17 @@ func TestNumberHandString(t *testing.T) {
 		hand     Hand
 		expected string
 	}{
-		{hand: buildHand(buildHandParams()), expected: "♣2 ♣3 ♣4 ♣5 ♣6"},
+		{hand: buildHand(buildHandParams()), expected: "♣2♣3♣4♣5♣6"},
 	}
 	for _, tt := range tests {
-		t.Run("string()", func(t *testing.T) {
+		t.Run("String()", func(t *testing.T) {
 			// t.Fatalf でテストが失敗した場合でもクリーンアップ処理は呼び出される
 			t.Cleanup(func() {
 				t.Log("cleanup!")
 			})
 
-			if tt.hand.string() != tt.expected {
-				t.Errorf("期待した値 %v 実際の値 %v", tt.expected, tt.hand.string())
+			if tt.hand.String() != tt.expected {
+				t.Errorf("期待した値 %v 実際の値 %v", tt.expected, tt.hand.String())
 			}
 		})
 	}
