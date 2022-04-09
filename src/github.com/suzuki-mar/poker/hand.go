@@ -24,7 +24,7 @@ func buildHand(params [5]HandParam) Hand {
 	cards := []Card{}
 
 	for _, param := range params {
-		num := Number{value: param.numberValue}
+		num := number{value: param.numberValue}
 		c := Card{suit: param.suit, number: num}
 		cards = append(cards, c)
 	}

@@ -11,8 +11,12 @@ func TestCardDisplayString(t *testing.T) {
 		expected string
 		name     string
 	}{
-		{card: Card{Number{2}, Clover}, expected: "♣2", name: "クローバーの2"},
-		{card: Card{Number{1}, Diamond}, expected: "◆A", name: "ダイアモンドのエース"},
+		{card: Card{number{1}, Clover}, expected: "♣A", name: "クローバーのエース"},
+		{card: Card{number{2}, Diamond}, expected: "◆2", name: "ダイアモンドの2"},
+		{card: Card{number{10}, Heart}, expected: "♥10", name: "ハートの10"},
+		{card: Card{number{11}, Spade}, expected: "♠J", name: "スペードのジャック"},
+		{card: Card{number{12}, Spade}, expected: "♠Q", name: "スペードのクイーン"},
+		{card: Card{number{13}, Spade}, expected: "♠K", name: "スペードのキング"},
 	}
 	for _, tt := range tests {
 
@@ -37,8 +41,8 @@ func TestCardIsSameSuit(t *testing.T) {
 		expected bool
 		name     string
 	}{
-		{target: Card{Number{2}, Clover}, compare: Card{Number{2}, Clover}, expected: true, name: "同じSuit"},
-		{target: Card{Number{2}, Clover}, compare: Card{Number{2}, Diamond}, expected: false, name: "違うSuit"},
+		{target: Card{number{2}, Clover}, compare: Card{number{2}, Clover}, expected: true, name: "同じSuit"},
+		{target: Card{number{2}, Clover}, compare: Card{number{2}, Diamond}, expected: false, name: "違うSuit"},
 	}
 	for _, tt := range tests {
 
@@ -63,8 +67,8 @@ func TestCardIsSameNumber(t *testing.T) {
 		expected bool
 		name     string
 	}{
-		{target: Card{Number{2}, Clover}, compare: Card{Number{2}, Clover}, expected: true, name: "同じNumber"},
-		{target: Card{Number{2}, Clover}, compare: Card{Number{3}, Diamond}, expected: false, name: "違うNumber"},
+		{target: Card{number{2}, Clover}, compare: Card{number{2}, Clover}, expected: true, name: "同じNumber"},
+		{target: Card{number{2}, Clover}, compare: Card{number{3}, Diamond}, expected: false, name: "違うNumber"},
 	}
 	for _, tt := range tests {
 
