@@ -4,16 +4,16 @@ import (
 	"testing"
 )
 
-func TestNumberHandString(t *testing.T) {
+func TestHandString(t *testing.T) {
 
 	tests := []struct {
 		hand     Hand
 		expected string
 	}{
-		{hand: buildHand(buildHandParams()), expected: "♣2♣3♣4♣5♣6"},
+		{hand: buildHand(buildHandParams()), expected: "♣2 ♣3 ♣4 ♣5 ♣6"},
 	}
 	for _, tt := range tests {
-		t.Run("String()", func(t *testing.T) {
+		t.Run("string()", func(t *testing.T) {
 			// t.Fatalf でテストが失敗した場合でもクリーンアップ処理は呼び出される
 			t.Cleanup(func() {
 				t.Log("cleanup!")
@@ -24,6 +24,13 @@ func TestNumberHandString(t *testing.T) {
 			}
 		})
 	}
+}
+
+func TestHandBuildRandHand(t *testing.T) {
+	t.Run("buildBuildRandHand()", func(t *testing.T) {
+		//作成できたらテストに成功したことにする
+		BuildHand()
+	})
 }
 
 func buildHandParams() [5]HandParam {

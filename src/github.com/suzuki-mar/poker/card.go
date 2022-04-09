@@ -1,6 +1,10 @@
 package poker
 
-import "strconv"
+import (
+	"math/rand"
+	"strconv"
+	"time"
+)
 
 type Card struct {
 	number number
@@ -8,14 +12,14 @@ type Card struct {
 }
 
 func (c Card) String() string {
-	return c.suit.String() + c.number.String()
+	return c.suit.string() + c.number.string()
 }
 
-func (c Card) isSameSuit(compare Card) bool {
+func (c Card) IsSameSuit(compare Card) bool {
 	return c.suit.isSame(compare.suit)
 }
 
-func (c Card) isSameNumber(compare Card) bool {
+func (c Card) IsSameNumber(compare Card) bool {
 	return c.number.isSame(compare.number)
 }
 
@@ -32,7 +36,7 @@ const (
 	Diamond
 )
 
-func (s Suit) String() string {
+func (s Suit) string() string {
 	switch s {
 	case Spade:
 		return "♠"
@@ -48,14 +52,14 @@ func (s Suit) String() string {
 }
 
 func (s Suit) isSame(compare Suit) bool {
-	return s.String() == compare.String()
+	return s.string() == compare.string()
 }
 
 type number struct {
 	value int
 }
 
-func (n number) String() string {
+func (n number) string() string {
 
 	switch n.value {
 	case 1:
@@ -73,4 +77,36 @@ func (n number) String() string {
 
 func (n number) isSame(compare number) bool {
 	return n.value == compare.value
+}
+
+func BuildRandCard() Card {
+	rand.Seed(time.Now().UnixNano())
+
+	return Card{suit: buildRandSuit(), number: buildRandNumber()}
+}
+
+func buildRandNumber() number {
+	var value int
+
+	for {
+		value := rand.Intn(13)
+		if value > 0 {
+			break
+		}
+	}
+
+	return number{value: value}
+}
+
+func buildRandSuit() Suit {
+	var value int
+
+	for {
+		value := rand.Intn(4)
+		if value > 0 {
+			break
+		}
+	}
+
+	return Suit(value)
 }

@@ -4,7 +4,7 @@ import (
 	"testing"
 )
 
-func TestCardDisplayString(t *testing.T) {
+func TestCardString(t *testing.T) {
 
 	tests := []struct {
 		card     Card
@@ -52,8 +52,8 @@ func TestCardIsSameSuit(t *testing.T) {
 				t.Log("cleanup!")
 			})
 
-			if tt.target.isSameSuit(tt.compare) != tt.expected {
-				t.Errorf("期待した値 %v 実際の値 %v", tt.expected, tt.target.isSameSuit(tt.compare))
+			if tt.target.IsSameSuit(tt.compare) != tt.expected {
+				t.Errorf("期待した値 %v 実際の値 %v", tt.expected, tt.target.IsSameSuit(tt.compare))
 			}
 		})
 	}
@@ -78,8 +78,8 @@ func TestCardIsSameNumber(t *testing.T) {
 				t.Log("cleanup!")
 			})
 
-			if tt.target.isSameNumber(tt.compare) != tt.expected {
-				t.Errorf("期待した値 %v 実際の値 %v", tt.expected, tt.target.isSameNumber(tt.compare))
+			if tt.target.IsSameNumber(tt.compare) != tt.expected {
+				t.Errorf("期待した値 %v 実際の値 %v", tt.expected, tt.target.IsSameNumber(tt.compare))
 			}
 		})
 	}
