@@ -1,4 +1,4 @@
-package poker
+package hand
 
 import (
 	"testing"
@@ -36,23 +36,23 @@ func buildHandParams() [5]HandParam {
 	var params [5]HandParam
 
 	params[0] = HandParam{
-		suit:        Clover,
+		suit:        CLOVER,
 		numberValue: 2,
 	}
 	params[1] = HandParam{
-		suit:        Clover,
+		suit:        CLOVER,
 		numberValue: 3,
 	}
 	params[2] = HandParam{
-		suit:        Clover,
+		suit:        CLOVER,
 		numberValue: 4,
 	}
 	params[3] = HandParam{
-		suit:        Clover,
+		suit:        CLOVER,
 		numberValue: 5,
 	}
 	params[4] = HandParam{
-		suit:        Clover,
+		suit:        CLOVER,
 		numberValue: 6,
 	}
 

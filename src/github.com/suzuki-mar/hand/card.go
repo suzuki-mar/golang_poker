@@ -1,4 +1,4 @@
-package poker
+package hand
 
 import (
 	"math/rand"
@@ -30,21 +30,21 @@ func (c Card) numberValue() int {
 type Suit int
 
 const (
-	Spade Suit = iota
-	Heart
-	Clover
-	Diamond
+	SPADE Suit = iota
+	HEART
+	CLOVER
+	DIAMOND
 )
 
 func (s Suit) string() string {
 	switch s {
-	case Spade:
+	case SPADE:
 		return "♠"
-	case Heart:
+	case HEART:
 		return "♥"
-	case Clover:
+	case CLOVER:
 		return "♣"
-	case Diamond:
+	case DIAMOND:
 		return "◆"
 	default:
 		return "error"
