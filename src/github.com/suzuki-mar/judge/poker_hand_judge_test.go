@@ -18,8 +18,13 @@ func Test_Judge(t *testing.T) {
 		},
 
 		{
+			name:  "ワンペアー",
+			cards: buildOnePairCards(),
+			want:  ONE_PAIR,
+		},
+		{
 			name:  "ツーペアー",
-			cards: buildPairCards(),
+			cards: buildTwoPairCards(),
 			want:  TWO_PAIR,
 		},
 	}
@@ -32,13 +37,25 @@ func Test_Judge(t *testing.T) {
 	}
 }
 
-func buildPairCards() [5]hand.Card {
+func buildOnePairCards() [5]hand.Card {
 	var cards [5]hand.Card
 
 	cards[0] = hand.BuildCard(hand.CLOVER, 1)
 	cards[1] = hand.BuildCard(hand.HEART, 1)
 	cards[2] = hand.BuildCard(hand.CLOVER, 2)
 	cards[3] = hand.BuildCard(hand.CLOVER, 3)
+	cards[4] = hand.BuildCard(hand.CLOVER, 4)
+
+	return cards
+}
+
+func buildTwoPairCards() [5]hand.Card {
+	var cards [5]hand.Card
+
+	cards[0] = hand.BuildCard(hand.CLOVER, 1)
+	cards[1] = hand.BuildCard(hand.HEART, 1)
+	cards[2] = hand.BuildCard(hand.CLOVER, 2)
+	cards[3] = hand.BuildCard(hand.SPADE, 2)
 	cards[4] = hand.BuildCard(hand.CLOVER, 4)
 
 	return cards
