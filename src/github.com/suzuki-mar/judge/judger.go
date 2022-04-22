@@ -26,6 +26,3 @@ const (
 	STRAIGHT_FLUSH
 	ROYAL_STRAIGHT_FLUSH
 )
-
-type judge interface {
-}
