@@ -6,6 +6,15 @@ type Hand struct {
 	cards [5]Card
 }
 
+type Suit int
+
+const (
+	SPADE Suit = iota
+	HEART
+	CLOVER
+	DIAMOND
+)
+
 func (h Hand) String() string {
 	str := ""
 
@@ -16,24 +25,9 @@ func (h Hand) String() string {
 	return strings.TrimRight(str, " ")
 }
 
-type HandParam struct {
-	suit        Suit
-	numberValue int
-}
+func BuildHandWithCards(cards [5]Card) Hand {
 
-func buildHandWithParams(params [5]HandParam) Hand {
-
-	var cards []Card
-
-	for _, param := range params {
-		num := number{value: param.numberValue}
-		c := Card{suit: param.suit, number: num}
-		cards = append(cards, c)
-	}
-
-	var c = [5]Card{}
-	copy(c[:], cards)
-	return Hand{cards: c}
+	return Hand{cards: cards}
 }
 
 func BuildHand() Hand {

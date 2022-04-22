@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"golang/src/github.com/suzuki-mar/poker"
+	"golang/src/github.com/suzuki-mar/hand"
 )
 
 type Hander interface {
@@ -10,8 +10,7 @@ type Hander interface {
 }
 
 func main() {
-
-	hand := poker.BuildHand()
+	hand := hand.BuildHand()
 
 	printHand(hand)
 }

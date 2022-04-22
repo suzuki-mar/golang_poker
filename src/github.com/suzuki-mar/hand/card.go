@@ -1,9 +1,7 @@
 package hand
 
 import (
-	"math/rand"
 	"strconv"
-	"time"
 )
 
 type Card struct {
@@ -16,25 +14,16 @@ func (c Card) String() string {
 }
 
 func (c Card) IsSameSuit(compare Card) bool {
-	return c.suit.isSame(compare.suit)
+	return c.suit.string() == compare.suit.string()
 }
 
 func (c Card) IsSameNumber(compare Card) bool {
-	return c.number.isSame(compare.number)
+	return c.number.value == compare.number.value
 }
 
-func (c Card) numberValue() int {
-	return c.number.value
+func (c Card) IsSameValue(compare Card) bool {
+	return c.IsSameNumber(compare) && c.IsSameSuit(compare)
 }
-
-type Suit int
-
-const (
-	SPADE Suit = iota
-	HEART
-	CLOVER
-	DIAMOND
-)
 
 func (s Suit) string() string {
 	switch s {
@@ -49,10 +38,6 @@ func (s Suit) string() string {
 	default:
 		return "error"
 	}
-}
-
-func (s Suit) isSame(compare Suit) bool {
-	return s.string() == compare.string()
 }
 
 type number struct {
@@ -73,40 +58,4 @@ func (n number) string() string {
 	default:
 		return strconv.Itoa(n.value)
 	}
-}
-
-func (n number) isSame(compare number) bool {
-	return n.value == compare.value
-}
-
-func BuildRandCard() Card {
-	rand.Seed(time.Now().UnixNano())
-
-	return Card{suit: buildRandSuit(), number: buildRandNumber()}
-}
-
-func buildRandNumber() number {
-	var value int
-
-	for {
-		value = rand.Intn(13)
-		if value > 0 {
-			break
-		}
-	}
-
-	return number{value: value}
-}
-
-func buildRandSuit() Suit {
-	var value int
-
-	for {
-		value = rand.Intn(4)
-		if value > 0 {
-			break
-		}
-	}
-
-	return Suit(value)
 }

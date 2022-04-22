@@ -2,18 +2,18 @@ package judge
 
 import "golang/src/github.com/suzuki-mar/hand"
 
-type HighCard struct {
+type TwoPair struct {
 }
 
-func (hc HighCard) Judge(cards [5]hand.Card) PokerHand {
-	
-	for _, card := range h.cards {
-		str += card.String() + " "
-	}
+func (tp TwoPair) Judge(cards [4]hand.Card) bool {
+	pair := map[string]int{}
+	c := cards[0]
 
-	return c.suit.string() + c.number.string()
+	pair[c.NumberString()] = 1
+
+	return true
 }
 
-func (hc HighCard) Rank() PokerHand {
+func (tp TwoPair) Rank() PokerHand {
 	return HIGH_CARD
 }

@@ -1,41 +1,40 @@
 package judge
 
-import "testing"
+import (
+	"golang/src/github.com/suzuki-mar/hand"
+	"testing"
+)
 
 func TestTwoPair_Judge(t *testing.T) {
-	type args struct {
-		cards [5]hand.Card
-	}
 	tests := []struct {
-		name string
-		args args
-		want bool
+		name  string
+		cards [5]hand.Card
+		want  bool
 	}{
-		// TODO: Add test cases.
+		{
+			name:  "同じカードが2枚ある場合",
+			cards: buildPairCards(),
+			want:  false,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			hc := TwoPair{}
-			if got := hc.Judge(tt.args.cards); got != tt.want {
+			tp := TwoPair{}
+			if got := tp.Judge(tt.cards); got != tt.want {
 				t.Errorf("Judge() = %v, want %v", got, tt.want)
 			}
 		})
 	}
 }
 
-func TestTwoPair_Rank(t *testing.T) {
-	tests := []struct {
-		name string
-		want PokerHand
-	}{
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			hc := TwoPair{}
-			if got := hc.Rank(); got != tt.want {
-				t.Errorf("Rank() = %v, want %v", got, tt.want)
-			}
-		})
-	}
+func buildPairCards() [5]hand.Card {
+	var cards [5]hand.Card
+
+	cards[0] = hand.BuildCard(hand.CLOVER, 1)
+	cards[1] = hand.BuildCard(hand.HEART, 1)
+	cards[2] = hand.BuildCard(hand.CLOVER, 2)
+	cards[3] = hand.BuildCard(hand.CLOVER, 3)
+	cards[4] = hand.BuildCard(hand.CLOVER, 4)
+
+	return cards
 }
