@@ -40,11 +40,11 @@ func Test_Judge(t *testing.T) {
 func buildOnePairCards() [5]hand.Card {
 	var cards [5]hand.Card
 
-	cards[0] = hand.BuildCard(hand.CLOVER, 1)
-	cards[1] = hand.BuildCard(hand.HEART, 1)
-	cards[2] = hand.BuildCard(hand.CLOVER, 2)
-	cards[3] = hand.BuildCard(hand.CLOVER, 3)
-	cards[4] = hand.BuildCard(hand.CLOVER, 4)
+	cards[0] = hand.NewCard(hand.CLOVER, 1)
+	cards[1] = hand.NewCard(hand.HEART, 1)
+	cards[2] = hand.NewCard(hand.CLOVER, 2)
+	cards[3] = hand.NewCard(hand.CLOVER, 3)
+	cards[4] = hand.NewCard(hand.CLOVER, 4)
 
 	return cards
 }
@@ -52,11 +52,11 @@ func buildOnePairCards() [5]hand.Card {
 func buildTwoPairCards() [5]hand.Card {
 	var cards [5]hand.Card
 
-	cards[0] = hand.BuildCard(hand.CLOVER, 1)
-	cards[1] = hand.BuildCard(hand.HEART, 1)
-	cards[2] = hand.BuildCard(hand.CLOVER, 2)
-	cards[3] = hand.BuildCard(hand.SPADE, 2)
-	cards[4] = hand.BuildCard(hand.CLOVER, 4)
+	cards[0] = hand.NewCard(hand.CLOVER, 1)
+	cards[1] = hand.NewCard(hand.HEART, 1)
+	cards[2] = hand.NewCard(hand.CLOVER, 2)
+	cards[3] = hand.NewCard(hand.SPADE, 2)
+	cards[4] = hand.NewCard(hand.CLOVER, 4)
 
 	return cards
 }
@@ -64,11 +64,11 @@ func buildTwoPairCards() [5]hand.Card {
 func buildHighCards() [5]hand.Card {
 	var cards [5]hand.Card
 
-	cards[0] = hand.BuildCard(hand.CLOVER, 1)
-	cards[1] = hand.BuildCard(hand.HEART, 9)
-	cards[2] = hand.BuildCard(hand.CLOVER, 7)
-	cards[3] = hand.BuildCard(hand.CLOVER, 3)
-	cards[4] = hand.BuildCard(hand.CLOVER, 4)
+	cards[0] = hand.NewCard(hand.CLOVER, 1)
+	cards[1] = hand.NewCard(hand.HEART, 9)
+	cards[2] = hand.NewCard(hand.CLOVER, 7)
+	cards[3] = hand.NewCard(hand.CLOVER, 3)
+	cards[4] = hand.NewCard(hand.CLOVER, 4)
 
 	return cards
 }

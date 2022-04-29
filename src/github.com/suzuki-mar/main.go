@@ -10,7 +10,7 @@ type Hander interface {
 }
 
 func main() {
-	hand := hand.BuildHand()
+	hand := hand.NewHand()
 
 	printHand(hand)
 }

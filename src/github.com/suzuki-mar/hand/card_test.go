@@ -11,12 +11,12 @@ func Test_Card_String(t *testing.T) {
 		expected string
 		name     string
 	}{
-		{card: BuildCard(CLOVER, 1), expected: "♣A", name: "クローバーのエース"},
-		{card: BuildCard(DIAMOND, 2), expected: "◆2", name: "ダイアモンドの2"},
-		{card: BuildCard(HEART, 10), expected: "♥10", name: "ハートの10"},
-		{card: BuildCard(SPADE, 11), expected: "♠J", name: "スペードのジャック"},
-		{card: BuildCard(SPADE, 12), expected: "♠Q", name: "スペードのクイーン"},
-		{card: BuildCard(SPADE, 13), expected: "♠K", name: "スペードのキング"},
+		{card: NewCard(CLOVER, 1), expected: "♣A", name: "クローバーのエース"},
+		{card: NewCard(DIAMOND, 2), expected: "◆2", name: "ダイアモンドの2"},
+		{card: NewCard(HEART, 10), expected: "♥10", name: "ハートの10"},
+		{card: NewCard(SPADE, 11), expected: "♠J", name: "スペードのジャック"},
+		{card: NewCard(SPADE, 12), expected: "♠Q", name: "スペードのクイーン"},
+		{card: NewCard(SPADE, 13), expected: "♠K", name: "スペードのキング"},
 	}
 	for _, tt := range tests {
 
@@ -41,8 +41,8 @@ func Test_Card_IsSameValue(t *testing.T) {
 		expected bool
 		name     string
 	}{
-		{target: BuildCard(CLOVER, 1), compare: BuildCard(CLOVER, 1), expected: true, name: "同じ値のカード"},
-		{target: BuildCard(CLOVER, 1), compare: BuildCard(CLOVER, 2), expected: false, name: "違う値のカード"},
+		{target: NewCard(CLOVER, 1), compare: NewCard(CLOVER, 1), expected: true, name: "同じ値のカード"},
+		{target: NewCard(CLOVER, 1), compare: NewCard(CLOVER, 2), expected: false, name: "違う値のカード"},
 	}
 	for _, tt := range tests {
 
@@ -66,8 +66,8 @@ func Test_Card_IsSameSuit(t *testing.T) {
 		expected bool
 		name     string
 	}{
-		{target: BuildCard(CLOVER, 2), compare: BuildCard(CLOVER, 3), expected: true, name: "同じSuit"},
-		{target: BuildCard(CLOVER, 2), compare: BuildCard(HEART, 3), expected: false, name: "違うSuit"},
+		{target: NewCard(CLOVER, 2), compare: NewCard(CLOVER, 3), expected: true, name: "同じSuit"},
+		{target: NewCard(CLOVER, 2), compare: NewCard(HEART, 3), expected: false, name: "違うSuit"},
 	}
 	for _, tt := range tests {
 
@@ -92,8 +92,8 @@ func Test_Card_IsSameNumber(t *testing.T) {
 		expected bool
 		name     string
 	}{
-		{target: BuildCard(CLOVER, 2), compare: BuildCard(HEART, 2), expected: true, name: "同じNumber"},
-		{target: BuildCard(CLOVER, 2), compare: BuildCard(CLOVER, 3), expected: false, name: "違うNumber"},
+		{target: NewCard(CLOVER, 2), compare: NewCard(HEART, 2), expected: true, name: "同じNumber"},
+		{target: NewCard(CLOVER, 2), compare: NewCard(CLOVER, 3), expected: false, name: "違うNumber"},
 	}
 	for _, tt := range tests {
 

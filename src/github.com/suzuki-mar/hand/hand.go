@@ -6,35 +6,28 @@ type Hand struct {
 	cards [5]Card
 }
 
-type Suit int
-
-const (
-	SPADE Suit = iota
-	HEART
-	CLOVER
-	DIAMOND
-)
-
 func (h Hand) String() string {
-	str := ""
+	var sb strings.Builder
 
 	for _, card := range h.cards {
-		str += card.String() + " "
+		sb.WriteString(card.String())
+		sb.WriteString(" ")
 	}
 
+	str := sb.String()
 	return strings.TrimRight(str, " ")
 }
 
-func BuildHandWithCards(cards [5]Card) Hand {
+func NewHandWithCards(cards [5]Card) Hand {
 
 	return Hand{cards: cards}
 }
 
-func BuildHand() Hand {
+func NewHand() Hand {
 	var cards []Card
 
 	for i := 0; i < 5; i++ {
-		cards = append(cards, BuildRandCard())
+		cards = append(cards, NewRandCard())
 	}
 
 	var c = [5]Card{}

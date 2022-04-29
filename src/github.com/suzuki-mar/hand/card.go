@@ -1,12 +1,28 @@
 package hand
 
 import (
+	"math/rand"
 	"strconv"
+	"time"
 )
 
 type Card struct {
 	number number
 	suit   Suit
+}
+
+func NewCard(suit Suit, numberValue int) Card {
+
+	number := number{}
+	number.value = numberValue
+
+	return Card{suit: suit, number: number}
+}
+
+func NewRandCard() Card {
+	rand.Seed(time.Now().UnixNano())
+
+	return NewCard(newRandSuit(), newRandNumber())
 }
 
 func (c Card) String() string {
@@ -23,21 +39,6 @@ func (c Card) IsSameNumber(compare Card) bool {
 
 func (c Card) IsSameValue(compare Card) bool {
 	return c.IsSameNumber(compare) && c.IsSameSuit(compare)
-}
-
-func (s Suit) string() string {
-	switch s {
-	case SPADE:
-		return "♠"
-	case HEART:
-		return "♥"
-	case CLOVER:
-		return "♣"
-	case DIAMOND:
-		return "◆"
-	default:
-		return "error"
-	}
 }
 
 type number struct {
@@ -58,4 +59,17 @@ func (n number) string() string {
 	default:
 		return strconv.Itoa(n.value)
 	}
+}
+
+func newRandNumber() int {
+	var value int
+
+	for {
+		value = rand.Intn(13)
+		if value > 0 {
+			break
+		}
+	}
+
+	return value
 }
